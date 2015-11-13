@@ -1,0 +1,11 @@
+body {
+    border: 2px;
+    border-style: solid;
+    border-color: #DDD;
+    margin: 3%;
+    padding: 3%;
+}
+
+h1, p {
+    text-align: center;
+}
