@@ -6,6 +6,19 @@ body {
     padding: 3%;
 }
 
-h1, p {
+h1, header p {
     text-align: center;
+}
+
+.validation-error {
+    color: #DD0000;
+    font-size: 0.9em;
+}
+
+form .ng-dirty.ng-invalid {
+    border: 1px solid #DD0000;
+}
+
+form .ng-dirty.ng-valid {
+    border: 1px solid #00DD00;
 }
