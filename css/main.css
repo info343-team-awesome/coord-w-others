@@ -1,3 +1,7 @@
+.alert-success {
+    text-align: center;
+}
+
 body {
     border: 2px;
     border-style: solid;
