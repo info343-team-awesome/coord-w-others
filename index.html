@@ -40,8 +40,9 @@
 
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" ng-model="user.email" required/>
-                    <p class="validation-error" ng-if="confirmForm.email.$error.required">Email is required</p>
+                    <input type="email" class="form-control" id="email" name="email" ng-model="user.email" required/>
+                    <p class="validation-error" ng-if="confirmForm.email.$error.required && confirmForm.email.$touched">Email is required</p>
+                    <p class="validation-error" ng-if="confirmForm.email.$error.email">Not a valid email</p>
                 </div>
 
 
