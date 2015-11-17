@@ -6,6 +6,12 @@ describe('the signup app', function() {
     var passInp = element(by.model('user.password'));
     var confPassInp = element(by.model('user.confPassword'));
 
+    function testScript() {
+        lnameInp.sendKeys('Lee');
+        emailInp.sendKeys('thisisvalid@email.com');
+        signUpBtn.click();
+    }
+
     beforeEach(function() {
         browser.get('http://localhost:8000');
     });
@@ -67,7 +73,10 @@ describe('the signup app', function() {
     });
 
     it('must display confirmation message when submitted', function() {
-
+        var submitMsg = $('.alert-success');
+        expect(submitMsg.isDisplayed()).toEqual(false);
+        testScript();
+        expect(submitMsg.isDisplayed()).toEqual(true);
     });
 
     it('must show proper validation error for blank dob', function() {
