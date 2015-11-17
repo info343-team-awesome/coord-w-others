@@ -48,16 +48,19 @@
 
                 <div class="form-group">
                     <label for="dobImp">Date of Birth: </label>
-                    <input type="text" class="form-control" id="dobImp"
-                           name="dobImp" ng-model="contact.dob" in-the-past required pattern="\d{2}/\d{2}/\d{4}"/>
-                    <p class="validation-error" ng-if="confirmForm.dobImp.$error.inThePast && confirmForm.dobImp.$dirty
+                    <input type="text" class="form-control" id="dobImp" placeholder="Type your date of birth mm/dd/yyyy"
+                           name="dobImp" ng-model="contact.dob" too-young="" required pattern="\d{2}/\d{2}/\d{4}"/>
+                    <p class="validation-error dob-past-error"
+                       ng-if="confirmForm.dobImp.$error.tooYoung && confirmForm.dobImp.$dirty
                     && !confirmForm.dobImp.$error.pattern && !confirmForm.dobImp.$error.required">
-                        Date must be valid and in the past
+                        Date must be valid and longer than 13 years ago
                     </p>
-                    <p class="validation-error" ng-if="confirmForm.dobImp.$error.required && confirmForm.dobImp.$dirty">
+                    <p class="validation-error dob-required-error"
+                       ng-if="confirmForm.dobImp.$error.required && confirmForm.dobImp.$dirty">
                         Date of birth is required
                     </p>
-                    <p class="validation-error" ng-if="confirmForm.dobImp.$error.pattern && confirmForm.dobImp.$dirty">
+                    <p class="validation-error dob-format-error"
+                       ng-if="confirmForm.dobImp.$error.pattern && confirmForm.dobImp.$dirty">
                         Date of birth must be in the format mm/dd/yyyy
                     </p>
 

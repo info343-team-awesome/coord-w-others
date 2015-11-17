@@ -24,4 +24,8 @@ describe('the signup app', function() {
         emailInp.sendKeys('thisisvalid@email.com');
         expect(requiredMsg.isPresent()).toEqual(false);
     });
+
+    it('must show proper validation error dob is invalid', function() {
+        //var
+    })
 });
