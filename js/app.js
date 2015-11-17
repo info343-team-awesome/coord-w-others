@@ -13,6 +13,20 @@ angular.module('SignUp', [])
             }
         }
     })
+    .directive('samePassword', function() {
+        "use strict";
+        return {
+            require: 'ngModel',
+            scope: {
+                otherModelValue: "=samePassword"
+            },
+            link: function(scope, elem, attrs, controller) {
+                controller.$validators.samePassword = function(modelValue) {
+                    return modelValue === scope.otherModelValue;
+                }
+            }
+        }
+    })
     .controller('SignUpController', function($scope) {
         'use strict';
 

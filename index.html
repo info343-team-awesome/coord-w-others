@@ -83,10 +83,16 @@
                 <div class="form-group">
                     <label for="confPassInp">Password: </label>
                     <input type="password" class="form-control" id="confPassInp" name="confPassInp"
-                           ng-model="user.confPassword" placeholder="Type your password here" required>
+                           ng-model="user.confPassword" placeholder="Type your password here" required
+                           same-password="user.password">
                     <p class="validation-error confPass-required-error"
                        ng-if="confirmForm.confPassInp.$error.required && confirmForm.confPassInp.$dirty">
                         Please confirm your password
+                    </p>
+
+                    <p class="validation-error confPass-different-error"
+                    ng-if="confirmForm.confPassInp.$dirty && confirmForm.confPassInp.$error.samePassword">
+                        Password is not the same
                     </p>
 
                 </div>

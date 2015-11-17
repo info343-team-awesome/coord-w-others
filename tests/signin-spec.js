@@ -132,4 +132,27 @@ describe('the signup app', function() {
         passInp.sendKeys('password');
         expect(pass.isPresent()).toEqual(false);
     });
+
+    it('must show proper validation error for blank confirm', function() {
+        var pass = $('.confPass-required-error');
+        expect(pass.isPresent()).toEqual(false);
+        confPassInp.sendKeys('password');
+        expect(pass.isPresent()).toEqual(false);
+        confPassInp.clear();
+        expect(pass.isPresent()).toEqual(true);
+        confPassInp.sendKeys('password');
+        expect(pass.isPresent()).toEqual(false);
+
+    });
+
+    it('must show proper validation error for different passwords', function() {
+        var different = $('.confPass-different-error');
+        expect(different.isPresent()).toEqual(false);
+        passInp.sendKeys('password');
+        confPassInp.sendKeys('different password');
+        expect(different.isPresent()).toEqual(true);
+        confPassInp.clear();
+        confPassInp.sendKeys('password');
+        expect(different.isPresent()).toEqual(false);
+    })
 });
