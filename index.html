@@ -69,6 +69,35 @@
 
                 </div>
 
+                <div class="form-group">
+                    <label for="passInp">Password: </label>
+                    <input type="password" class="form-control" id="passInp" name="passInp" ng-model="user.password"
+                           placeholder="Type your password here" required>
+                    <p class="validation-error pass-required-error"
+                       ng-if="confirmForm.passInp.$error.required && confirmForm.passInp.$dirty">
+                        Password is required
+                    </p>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="confPassInp">Password: </label>
+                    <input type="password" class="form-control" id="confPassInp" name="confPassInp"
+                           ng-model="user.confPassword" placeholder="Type your password here" required
+                           same-password="user.password">
+                    <p class="validation-error confPass-required-error"
+                       ng-if="confirmForm.confPassInp.$error.required && confirmForm.confPassInp.$dirty">
+                        Please confirm your password
+                    </p>
+
+                    <p class="validation-error confPass-different-error"
+                    ng-if="confirmForm.confPassInp.$dirty && confirmForm.confPassInp.$error.samePassword">
+                        Password is not the same
+                    </p>
+
+                </div>
+
+
                 <button type="submit" class="btn btn-success" ng-disabled="confirmForm.$invalid">
                     Sign Me Up!
                 </button>
