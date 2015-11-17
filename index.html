@@ -49,8 +49,8 @@
                 <div class="form-group">
                     <label for="dobImp">Date of Birth: </label>
                     <input type="text" class="form-control" id="dobImp" placeholder="Type your date of birth mm/dd/yyyy"
-                           name="dobImp" ng-model="contact.dob" too-young="" required pattern="\d{2}/\d{2}/\d{4}"/>
-                    <p class="validation-error dob-past-error"
+                           name="dobImp" ng-model="user.dob" too-young required pattern="\d{2}/\d{2}/\d{4}"/>
+                    <p class="validation-error dob-young-error"
                        ng-if="confirmForm.dobImp.$error.tooYoung && confirmForm.dobImp.$dirty
                     && !confirmForm.dobImp.$error.pattern && !confirmForm.dobImp.$error.required">
                         Date must be valid and longer than 13 years ago
