@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width", initial-scale="1">
+        <meta name="viewport" content="width=device-width" initial-scale="1">
 
         <title>Sign-Up</title>
 
@@ -45,7 +45,22 @@
                     <p class="validation-error" ng-if="confirmForm.email.$error.email">Not a valid email</p>
                 </div>
 
+                <div class="form-group">
+                    <label for="dobImp">Date of Birth: </label>
+                    <input type="text" class="form-control" id="dobImp"
+                           name="dobImp" ng-model="contact.dob" in-the-past required pattern="\d{2}/\d{2}/\d{4}"/>
+                    <p class="validation-error" ng-if="confirmForm.dobImp.$error.inThePast && confirmForm.dobImp.$dirty
+                    && !confirmForm.dobImp.$error.pattern && !confirmForm.dobImp.$error.required">
+                        Date must be valid and in the past
+                    </p>
+                    <p class="validation-error" ng-if="confirmForm.dobImp.$error.required && confirmForm.dobImp.$dirty">
+                        Date of birth is required
+                    </p>
+                    <p class="validation-error" ng-if="confirmForm.dobImp.$error.pattern && confirmForm.dobImp.$dirty">
+                        Date of birth must be in the format mm/dd/yyyy
+                    </p>
 
+                </div>
 
                 <button type="submit" class="btn btn-success" ng-disabled="confirmForm.$invalid">
                     Sign Me Up!
