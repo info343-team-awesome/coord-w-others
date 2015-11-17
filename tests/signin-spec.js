@@ -2,8 +2,9 @@ describe('the signup app', function() {
     var emailInp =  element(by.model('user.email'));
     var lnameInp = element(by.model('user.lname'));
     var signUpBtn = element(by.buttonText('Sign Me Up!'));
-
     var dobInp = element(by.model('user.dob'));
+    var passInp = element(by.model('user.password'));
+    var confPassInp = element(by.model('user.confPassword'));
 
     beforeEach(function() {
         browser.get('http://localhost:8000');
@@ -45,6 +46,8 @@ describe('the signup app', function() {
         emailInp.sendKeys('student@uw.edu');
         lnameInp.sendKeys('Lee');
         dobInp.sendKeys('01/27/1994');
+        passInp.sendKeys('password');
+        confPassInp.sendKeys('password');
         expect(signUpBtn.getAttribute('disabled')).toEqual(null);
         emailInp.clear();
         expect(signUpBtn.getAttribute('disabled')).toEqual('true');
@@ -55,6 +58,8 @@ describe('the signup app', function() {
         emailInp.sendKeys('student@uw.edu');
         lnameInp.sendKeys('Lee');
         dobInp.sendKeys('01/27/1994');
+        passInp.sendKeys('password');
+        confPassInp.sendKeys('password');
         expect(signUpBtn.getAttribute('disabled')).toEqual(null);
         emailInp.clear();
         emailInp.sendKeys('not a valid email');
@@ -115,5 +120,16 @@ describe('the signup app', function() {
 
         dobInp.clear();
         expect(dob.isPresent()).toEqual(false);
+    });
+
+    it('must show proper validation error for blank password', function() {
+        var pass = $('.pass-required-error');
+        expect(pass.isPresent()).toEqual(false);
+        passInp.sendKeys('password');
+        expect(pass.isPresent()).toEqual(false);
+        passInp.clear();
+        expect(pass.isPresent()).toEqual(true);
+        passInp.sendKeys('password');
+        expect(pass.isPresent()).toEqual(false);
     });
 });
