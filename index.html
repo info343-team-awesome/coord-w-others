@@ -24,8 +24,8 @@
         </header>
 
         <main>
-            <p class="alert alert-success">You have been signed up!</p>
-            <form name="confirmForm" novalidate>
+            <p class="alert alert-success fade in" id="confirmation">You have been signed up!</p>
+            <form name="confirmForm" novalidate ng-submit="submit()">
                 <div class="form-group">
                     <label for="fname">First Name</label>
                     <input type="text" class="form-control" id="fname" name="fname" placeholder="Type Your First Name"

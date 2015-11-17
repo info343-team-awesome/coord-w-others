@@ -2,8 +2,13 @@ describe('the signup app', function() {
     var emailInp =  element(by.model('user.email'));
     var lnameInp = element(by.model('user.lname'));
     var signUpBtn = element(by.buttonText('Sign Me Up!'));
-
     var dobInp = element(by.model('user.dob'));
+
+    function testScript() {
+        lnameInp.sendKeys('Lee');
+        emailInp.sendKeys('thisisvalid@email.com');
+        signUpBtn.click();
+    }
 
     beforeEach(function() {
         browser.get('http://localhost:8000');
@@ -62,7 +67,10 @@ describe('the signup app', function() {
     });
 
     it('must display confirmation message when submitted', function() {
-
+        var submitMsg = $('.alert-success');
+        expect(submitMsg.isDisplayed()).toEqual(false);
+        testScript();
+        expect(submitMsg.isDisplayed()).toEqual(true);
     });
 
     it('must show proper validation error for blank dob', function() {

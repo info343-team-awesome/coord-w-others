@@ -17,6 +17,6 @@ angular.module('SignUp', [])
         'use strict';
 
         $scope.submit = function() {
-            $('.alert-success').show();
+            $('#confirmation').show();
         }
     });
