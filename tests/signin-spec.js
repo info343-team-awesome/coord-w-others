@@ -9,6 +9,9 @@ describe('the signup app', function() {
     function testScript() {
         lnameInp.sendKeys('Lee');
         emailInp.sendKeys('thisisvalid@email.com');
+        dobInp.sendKeys('10/10/2000');
+        passInp.sendKeys('password');
+        confPassInp.sendKeys('password');
         signUpBtn.click();
     }
 
